@@ -84,7 +84,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: tvtien-cicd-youtube.vti2509.click
+    - host: cuongvc-cicd-youtube.vti2602.click
       paths:
         - path: /
           # pathType: ImplementationSpecific
