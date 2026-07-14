@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading'
+import { InfiniteLoading } from 'v3-infinite-loading'
 
 import VideoCard from '@/components/VideoCard'
 import FeelingService from '@/services/FeelingService'

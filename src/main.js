@@ -1,45 +1,31 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
-import { required, email, max, min, size, oneOf } from 'vee-validate/dist/rules'
-import {
-  extend,
-  ValidationObserver,
-  ValidationProvider,
-  setInteractionMode
-} from 'vee-validate'
+
+import { defineRule, configure } from 'vee-validate'
+import { required, email, max, min, size, one_of } from '@vee-validate/rules'
+
 import Vuebar from 'vuebar'
-// import InfiniteLoading from 'vue-infinite-loading'
 
-setInteractionMode('eager')
-
-extend('required', {
-  ...required,
-  message: 'Enter {_field_}'
+configure({
+  validateOnInput: true
 })
 
-extend('oneOf', {
-  ...oneOf
-})
+defineRule('required', required)
 
-extend('max', {
-  ...max,
-  message: '{_field_} may not be greater than {length} characters'
-})
+defineRule('oneOf', one_of)
 
-extend('min', {
-  ...min,
-  message: '{_field_} may not be less than {length} characters'
-})
+defineRule('max', max)
 
-extend('email', {
-  ...email,
-  message: 'Email must be valid'
-})
+defineRule('min', min)
 
-extend('password', {
+defineRule('email', email)
+
+defineRule('size', size)
+
+defineRule('password', {
   params: ['target'],
   validate(value, { target }) {
     return value === target
@@ -47,29 +33,12 @@ extend('password', {
   message: 'Password does not match'
 })
 
-extend('size', {
-  ...size,
-  message: 'video size should be less than 5 MB!'
-})
+const app = createApp(App)
 
-Vue.config.productionTip = false
-Vue.component('ValidationProvider', ValidationProvider)
-Vue.component('ValidationObserver', ValidationObserver)
+app.use(router)
+app.use(store)
+app.use(vuetify)
 
-// Vue.use(InfiniteLoading, {
-//   props: {
-//     distance: null
-//     /* other props need to configure */
-//   }
-// })
+app.use(Vuebar)
 
-// Vue.component('InfiniteLoading', InfiniteLoading)
-
-Vue.use(Vuebar)
-
-new Vue({
-  router,
-  store,
-  vuetify,
-  render: (h) => h(App)
-}).$mount('#app')
+app.mount('#app')

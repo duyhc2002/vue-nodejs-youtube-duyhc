@@ -48,6 +48,7 @@ import UploadVideoModal from '@/components/UploadVideoModal'
 import SubscribersModal from '@/components/SubscribersModal'
 
 export default {
+  name: 'StudioDashboard',
   data: () => ({
     loading: true,
     dialog: false,

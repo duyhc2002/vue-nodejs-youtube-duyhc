@@ -50,12 +50,12 @@
                         :src="`${getUrl}/uploads/avatars/${result.photoUrl}`"
                         :alt="`${result.channelName} avatar`"
                       />
-                      <template v-else color="red">
-                        <span class="white--text display-1">
+                      <template v-else>
+                        <span class="white--text display-1 red">
                           {{
                             result.channelName.split('')[0].toUpperCase()
-                          }}</span
-                        >
+                          }}
+                        </span>
                       </template>
                     </v-avatar>
                     <!-- </v-responsive> -->
@@ -171,11 +171,12 @@
 </template>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading'
+import { InfiniteLoading } from 'v3-infinite-loading'
 import { mapGetters } from 'vuex'
 import SearchService from '@/services/SearchService'
 
 export default {
+  name: 'SearchPage',
   data: () => ({
     errored: false,
     loading: true,

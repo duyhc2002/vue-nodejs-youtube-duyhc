@@ -192,27 +192,30 @@
           >
             <v-radio-group v-model="historyType">
               <p class="title font-weight-regular pl-5 mb-2">History Type</p>
-              <v-list class=" grey lighten-4">
-                <v-list-item-group>
-                  <template v-for="(item, i) in items">
-                    <v-divider :key="i"></v-divider>
-                    <v-list-item
-                      active-class="grey lighten-4"
+                <v-list class="grey lighten-4">
+                  <v-list-item-group>
+                    <div
+                      v-for="(item, i) in items"
                       :key="`item-${i}`"
-                      class="py-2"
-                      @click="clickItem(item)"
                     >
-                      <v-list-item-content>
-                        <v-list-item-title v-text="item"></v-list-item-title>
-                      </v-list-item-content>
+                      <v-divider></v-divider>
 
-                      <v-list-item-action>
-                        <v-radio :key="item" :value="item"></v-radio>
-                      </v-list-item-action>
-                    </v-list-item>
-                  </template>
-                </v-list-item-group>
-              </v-list>
+                  <v-list-item
+                  active-class="grey lighten-4"
+        class="py-2"
+        @click="clickItem(item)"
+      >
+        <v-list-item-content>
+          <v-list-item-title v-text="item"></v-list-item-title>
+        </v-list-item-content>
+
+        <v-list-item-action>
+          <v-radio :value="item"></v-radio>
+        </v-list-item-action>
+      </v-list-item>
+    </div>
+  </v-list-item-group>
+</v-list>
               <div>
                 <v-btn text :loading="clearLoading" @click="clearHistory"
                   >Clear all {{ historyType }}</v-btn
@@ -239,9 +242,11 @@ import moment from 'moment'
 import { mapGetters } from 'vuex'
 
 import HistoryService from '@/services/HistoryService'
-import InfiniteLoading from 'vue-infinite-loading'
+import { InfiniteLoading } from 'v3-infinite-loading'
 
 export default {
+  name: 'WatchHistory',
+
   data: () => ({
     loading: false,
     loaded: false,

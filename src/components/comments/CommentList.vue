@@ -114,10 +114,7 @@
                         tile
                         small
                         :loading="btnLoading && i == index"
-                        @click="
-                          index = i
-                          addReply($event, comment._id)
-                        "
+                        @click="index = i; addReply($event, comment._id)"
                         >Reply</v-btn
                       >
                     </div>

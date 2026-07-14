@@ -337,7 +337,7 @@
 <script>
 import moment from 'moment'
 import { mapGetters } from 'vuex'
-import InfiniteLoading from 'vue-infinite-loading'
+import { InfiniteLoading } from 'v3-infinite-loading'
 
 import VideoService from '@/services/VideoService'
 import SubscriptionService from '@/services/SubscriptionService'
@@ -349,6 +349,7 @@ import AddComment from '@/components/comments/AddComment'
 import CommentList from '@/components/comments/CommentList'
 
 export default {
+  name: 'WatchVideo',
   data: () => ({
     loading: false,
     loaded: false,

@@ -164,6 +164,8 @@ import VideoCard from '@/components/VideoCard'
 import SigninModal from '@/components/SigninModal'
 
 export default {
+  name: 'ChannelHome',
+
   data: () => ({
     tab: null,
     loading: false,

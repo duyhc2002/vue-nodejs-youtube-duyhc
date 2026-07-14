@@ -72,14 +72,14 @@
 </template>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading'
+import InfiniteLoading from 'v3-infinite-loading'
 import moment from 'moment'
 
 import VideoCard from '@/components/VideoCard'
 import SubscriptionService from '@/services/SubscriptionService'
 
 export default {
-  name: 'Subscription',
+  name: 'UserSubscription',
   data: () => ({
     loading: false,
     loaded: false,

@@ -73,14 +73,14 @@
 </template>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading'
+import { InfiniteLoading } from 'v3-infinite-loading'
 import moment from 'moment'
 
 import VideoCard from '@/components/VideoCard'
 import VideoService from '@/services/VideoService'
 
 export default {
-  name: 'Home',
+  name: 'ChannelHome',
   data: () => ({
     loading: false,
     loaded: false,

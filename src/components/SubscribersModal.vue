@@ -23,7 +23,7 @@
               :loading="loading"
               sort-by="calories"
             >
-              <template v-slot:item.channel="{ item }">
+              <template v-slot:[`item.channel`]="{ item }">
                 <v-avatar size="35" color="red" class="white--text">
                   <template
                     v-if="item.subscriberId.photoUrl !== 'no-photo.jpg'"

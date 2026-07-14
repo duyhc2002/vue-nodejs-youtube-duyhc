@@ -120,7 +120,7 @@ import VideoService from '@/services/VideoService'
 import CategoryService from '@/services/CategoryService'
 
 export default {
-  name: 'Details',
+  name: 'StudioDetails',
   data() {
     return {
       // dialog: this.openDialog ? this.openDialog : false,

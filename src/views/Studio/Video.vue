@@ -34,7 +34,7 @@
               :loading="loading"
               loading-text="Loading... Please wait"
             >
-              <template v-slot:item.feelings="{ item }">
+              <template v-slot:[`item.feelings`]="{ item }">
                 <span class="mr-3"
                   ><v-icon small class="pr-1">mdi-thumb-up</v-icon
                   >{{ item.likes }}</span
@@ -110,7 +110,7 @@
                   </v-card>
                 </v-dialog>
               </template>
-              <template v-slot:item.actions="{ item }">
+              <template v-slot:[`item.actions`]="{ item }">
                 <v-btn icon href text class="mr-2">
                   <v-icon @click="editItem(item)">
                     mdi-pencil
@@ -157,6 +157,7 @@
 import VideoService from "@/services/VideoService";
 import moment from "moment";
 export default {
+  name: 'StudioVideo',
   data: () => ({
     loading: false,
     deleteBtnLoading: false,
