@@ -22,7 +22,7 @@ pipeline {
     stages {
         stage('🚀 Checkout Code') {
             steps {
-                git url: 'https://github.com/duyhc2002/vue-nodejs-youtube-duyhc.git',
+                git url: 'https://github.com/duyhc2002/vue-nodejs-youtube-clone.git',
                     branch: 'master',
                     credentialsId: 'do2602-jenkins-github'
             }
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                     echo "NODE_ENV=production" > .env.production.local
-                    echo "VUE_APP_URL=https://tvtien-cicd-youtube.do2602.click" >> .env.production.local
+                    echo "VUE_APP_URL=https://hcduy-cicd-youtube.do2602.click" >> .env.production.local
                     echo "VUE_APP_TITLE=My App Production" >> .env.production.local
                 '''
             }
